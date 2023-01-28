@@ -1,0 +1,83 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: npx shadow-cljs -d cider/cider-nrepl:0.28.5 watch :app
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉shadow.user꞉>  ; Use `alt+enter` to evaluate
+; Creating cljs repl session...
+; Connecting cljs repl: shadow-cljs...
+;   The Calva Connection Log might have more connection progress information.
+; Connected session: cljs, repl: :app
+; TIPS: You can choose which REPL to use (clj or cljs):
+;    *Calva: Toggle REPL connection*
+;    (There is a button in the status bar for this)
+; Jack-in done.
+cljs꞉cljs.user꞉>  ; Use `alt+enter` to evaluate
+nil
+; ------ REPL Error while processing ---------------------------------------------
+; (ns qfront.core
+;   (:require
+;    [qfront.utils.jsutils :as u]
+;    [reagent.core :as r]
+;    [reagent.dom :as d] 
+;    [cljs.http.client :as http]
+;    [cljs.core.async :refer [<!]]))
+; The alias http is already used for namespace qfront.http.servercomm
+clj꞉qfront.core꞉> 
+nil
+; ------ REPL Error while processing ---------------------------------------------
+; (defn user-profile-layout [{createdAt :createdAt
+;                             name :name
+;                             avatar :avatar}]
+;   [:div
+;    (for [user @multipasports]
+;      (single-user-plank user))])
+; no source by provide: qfront.core
+; {:provide qfront.core}
+; ExceptionInfo: no source by provide: qfront.core
+; 	shadow.build.data/get-source-id-by-provide (data.clj:192)
+; 	shadow.build.data/get-source-id-by-provide (data.clj:187)
+; 	shadow.build.data/get-source-by-provide (data.clj:195)
+; 	shadow.build.data/get-source-by-provide (data.clj:194)
+; 	shadow.cljs.repl/repl-compile/fn--14939/fn--14940 (repl.clj:472)
+; 	shadow.cljs.repl/repl-compile/fn--14939 (repl.clj:448)
+; 	shadow.cljs.repl/repl-compile (repl.clj:446)
+; 	shadow.cljs.repl/repl-compile (repl.clj:443)
+; 	shadow.cljs.repl/process-read-result (repl.clj:534)
+; 	shadow.cljs.repl/process-read-result (repl.clj:510)
+; 	shadow.cljs.repl/process-input (repl.clj:673)
+; 	shadow.cljs.repl/process-input (repl.clj:651)
+; 	shadow.cljs.devtools.server.worker.impl/fn--15465 (impl.clj:698)
+; 	shadow.cljs.devtools.server.worker.impl/fn--15465 (impl.clj:688)
+; 	clojure.lang.MultiFn.invoke (MultiFn.java:234)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15139/fn--15140/fn--15148 (util.clj:283)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15139/fn--15140 (util.clj:282)
+; 	shadow.cljs.devtools.server.util/server-thread/fn--15139 (util.clj:255)
+; 	java.lang.Thread.run (Thread.java:829)
+; 
+clj꞉qfront.core꞉> 
+3
+clj꞉qfront.core꞉> 
+(2 3)
+clj꞉qfront.core꞉> 
+[#object[qfront$core$user_profile_layout]]
+clj꞉qfront.core꞉> 
+nil
+; ------ WARNING - :undeclared-var -----------------------------------------------
+;  Resource: <eval>:1:1
+;  Use of undeclared Var qfront.core/main-page
+; --------------------------------------------------------------------------------
+; 
+clj꞉qfront.core꞉> 

@@ -1,0 +1,85 @@
+* {
+  /* border: 1px solid red; */
+}
+
+body {
+  font-family: monospace;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.125em;
+  color: #333;
+  line-height: 1.5em;
+  background-color:FFD9DA;
+}
+
+header {
+  background-color: #223843;
+  display: flex;
+  padding: 0 20px 0 20px;
+}
+
+header h2 {
+  color: #EFF1F3;
+  font-size: 30pt;
+  flex-grow: 1;
+}
+
+#main-page {
+}
+
+#header-controls {
+  display: flex;
+  padding: 10px 0 10px 0;
+}
+
+#working-zone {
+  display: flex;
+  justify-content:space-between;
+}
+
+#users-layout {
+}
+
+#operation-layout {
+  background-color: #D8B4A0;
+  bottom:500px;
+  height: 70vh;
+  width: 50%;
+  min-width: 600px;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 20px 0 0 20px;
+  border: 2px solid #89023E;
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.user-profile {
+  max-width: 600px;
+  padding: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-profile:hover {
+  background-color: azure;
+  border: 1px dotted gray;
+  padding: 0;
+  cursor: pointer;
+}
+
+.user-profile img {
+  border: 5px solid #D77A61;
+  border-radius: 50%;
+  margin-top: 30px;
+  flex-shrink: 1;
+}
+
+.user-name {
+  font-size: larger;
+}
+
