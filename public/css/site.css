@@ -54,6 +54,21 @@ header h2 {
   border: 2px solid #89023E;
   border-radius: 10px;
   flex-grow: 1;
+  overflow-y: scroll;
+  font-size: large;
+}
+
+.id-operation-form-inputs .custom-field {
+  display: flex;
+}
+
+.id-operation-form-inputs input {
+  flex-grow: 1;
+  font-size: large;
+}
+
+.id-operation-form-inputs label {
+  flex-basis: 200px;
 }
 
 .user-profile {
