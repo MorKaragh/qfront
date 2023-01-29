@@ -1,1 +1,1 @@
-["^ ","~$query-test",["^ ","~:row",7,"~:col",1,"~:fixed-arities",["~#set",[1]],"~:name","^0","~:ns","~$qfront.http.servercomm","~:top-ns","^7","~:type","~:fn"],"~:filename","/home/sergei/workspace/clojure/qfront/src/qfront/http/servercomm.cljs"]
+["^ ","~$query-test",["^ ","~:row",7,"~:col",1,"~:fixed-arities",["~#set",[1]],"~:name","^0","~:ns","~$qfront.http.servercomm","~:top-ns","^7","~:type","~:fn"],"~:filename","/home/sergei/workspace/clojure/qfront/src/qfront/app/api/servercomm.cljs"]

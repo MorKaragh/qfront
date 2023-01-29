@@ -81,3 +81,34 @@ nil
 ; --------------------------------------------------------------------------------
 ; 
 clj꞉qfront.core꞉> 
+nil
+; ------ REPL Error while processing ---------------------------------------------
+; (ns qfront.features.identity.profilelayout
+;   ((:require [qfront.features.identity :as iden])))
+; Invalid namespace declaration
+; -- Syntax error -------------------
+; 
+;   (... ... ((:require [qfront.features.identity :as iden])))
+;            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+; 
+; has extra input
+; 
+; -- Relevant specs -------
+; 
+; :shadow.build.ns-form/ns-form:
+;   (clojure.spec.alpha/cat
+;    :ns
+;    '#{clojure.core/ns}
+;    :name
+;    clojure.core/simple-symbol?
+;    :docstring
+;    (clojure.spec.alpha/? clojure.core/string?)
+;    :meta
+;    (clojure.spec.alpha/? clojure.core/map?)
+;    :clauses
+;    :shadow.build.ns-form/ns-clauses)
+; 
+; -------------------------
+; Detected 1 error
+; 
+clj꞉qfront.features.identity.identity꞉> 

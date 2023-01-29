@@ -1,0 +1,1 @@
+["^ ","~$user-profile-layout",["^ ","~:row",6,"~:col",1,"~:fixed-arities",["~#set",[0]],"~:name","^0","~:ns","~$qfront.features.identity.profilelayout","~:top-ns","^7","~:arities",["^ ","~i0",["^ ","~:ret","~:vector","~:arglist-str","[]"]],"~:type","~:fn"],"~:filename","/home/sergei/workspace/clojure/qfront/src/qfront/features/identity/profilelayout.cljs"]
