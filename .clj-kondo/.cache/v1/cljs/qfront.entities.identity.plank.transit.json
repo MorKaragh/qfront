@@ -1,1 +1,0 @@
-["^ ","~$single-user-plank",["^ ","~:row",4,"~:col",1,"~:fixed-arities",["~#set",[2]],"~:name","^0","~:ns","~$qfront.entities.identity.plank","~:top-ns","^7","~:arities",["^ ","~i2",["^ ","~:ret","~:vector","~:arglist-str","[user handler]"]],"~:type","~:fn"],"~:filename","/home/sergei/workspace/clojure/qfront/src/qfront/entities/identity/plank.cljs"]
