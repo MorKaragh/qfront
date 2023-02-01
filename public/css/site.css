@@ -11,82 +11,128 @@ body {
   background-color:FFD9DA;
 }
 
+#main-page {
+  display:flex;
+  flex-direction: column;
+  max-height: 98vh;
+}
+
 header {
   background-color: #223843;
   display: flex;
-  padding: 0 20px 0 20px;
+  max-height: 5vw;
+  border: 1px solid red;
+  z-index: 1;
 }
-
 header h2 {
   color: #EFF1F3;
   font-size: 30pt;
   flex-grow: 1;
 }
-
-#main-page {
-}
-
 #header-controls {
   display: flex;
-  padding: 10px 0 10px 0;
 }
+
 
 #working-zone {
   display: flex;
-  justify-content:space-between;
+  justify-content: start;
+  flex-grow: 1;
+  max-height: 90vh;
 }
 
+#left-menu {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-shrink: 1;
+  width: 30vw;
+}
+#left-menu section {
+
+}
+
+#right-part {
+  flex-grow: 1;
+  overflow-y: scroll;
+  display: flex;
+}
+.right-part-section {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#mock-api-btn {
+  background: #9acd32;
+  text-align: center;
+  padding: 20pt;
+  border: 5px solid lightgray;
+  border-radius: 10px;  
+}
 #users-layout {
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
 }
 
 #operation-layout {
-  background-color: #D8B4A0;
-  bottom:500px;
-  height: 70vh;
-  width: 50%;
-  min-width: 600px;
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 20px 0 0 20px;
-  border: 2px solid #89023E;
-  border-radius: 10px;
+  background-color: #EFF1F3;
   flex-grow: 1;
   overflow-y: scroll;
   font-size: large;
+  animation-duration: 0.2s;
+  animation-name: slidein;
 }
+#frame-container {
+  flex-grow: 1;
+  display: flex;
+}
+iframe {
+  flex-grow: 1;
+}
+
 
 .id-operation-form-inputs .custom-field {
   display: flex;
 }
-
 .id-operation-form-inputs input {
   flex-grow: 1;
   font-size: large;
 }
-
 .id-operation-form-inputs label {
   flex-basis: 200px;
 }
 
+
 .user-profile {
-  max-width: 600px;
   padding: 1px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
 }
-
+.user-profile.selected-plank {
+  background-color: #D77A61;
+}
 .user-profile:hover {
   background-color: azure;
   border: 1px dotted gray;
   padding: 0;
   cursor: pointer;
 }
-
+.user-profile.selected-plank:hover {
+  background-color: #D8B4A0;
+}
 .user-profile img {
   border: 5px solid #D77A61;
   border-radius: 50%;
@@ -94,6 +140,12 @@ header h2 {
   flex-shrink: 1;
 }
 
+.user-description {
+  flex-shrink: 1;
+}
+.user-attributes li{
+  overflow-x: hidden;
+}
 .user-name {
   font-size: larger;
 }

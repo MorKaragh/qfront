@@ -1,4 +1,4 @@
-(ns qfront.pages.identityeditor
+(ns qfront.pages.mainpage
   (:require
     [qfront.features.identity.operation :as oper]
     [qfront.features.identity.profilelayout :as prof]
@@ -6,9 +6,10 @@
 
 (defn home-page []
   [:div {:id "main-page"}
-   [:header
+   [:header {:id "main-header"}
     [:h2 "People of the world"]
     [header/header-controls]]
-   [:main {:id "working-zone"}
-    [prof/user-profile-layout]
-    [oper/operation-layout prof/local-state]]])
+   [:main {:id "working-zone"} 
+    [prof/left-menu]
+    [oper/right-part]
+    ]])
