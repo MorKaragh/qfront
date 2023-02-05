@@ -1,4 +1,4 @@
-(ns qfront.shared.utils.jsutils)
+(ns qfront.shared.utils.js-utils)
 
 (defn log [strng]
   ((.-log js/console) (str strng)))

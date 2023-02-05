@@ -1,7 +1,7 @@
 (ns qfront.features.identity.profilelayout
   (:require
    [qfront.features.identity.identityplank :as plank]
-   [qfront.shared.utils.mapUtils :as mapu]
+   [qfront.shared.utils.map-utils :as mapu]
    [re-frame.core :as rf]
    [reagent.core :as r]))
 

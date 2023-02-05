@@ -1,5 +1,6 @@
 (ns qfront.app.events
   (:require
+   [qfront.shared.utils.map-utils :as mu]
    [re-frame.core :as rf]))
 
 ;; -----------------
@@ -49,16 +50,21 @@
 (rf/reg-event-db
  :load-users
  (fn [db [_ data]]
-   (assoc db :all-identities (into (sorted-map) (map (fn [m] [(:id m) m]) data)))))
+   (let [identities (:all-identities db)
+         to-delete  (mu/uniq-in-second data identities)
+         to-add (mu/uniq-in-second identities data)]
+     (assoc db :all-identities 
+            (merge (apply dissoc identities (keys to-delete)) to-add )))
+   ))
 
 (rf/reg-event-db
  :plank-click
  (fn [db [_ id]]
-   (dissoc (if (not (:framed-app-url db))
-             (assoc-in db [:all-identities id :x-is-selected]
-                      (not (get-in db [:all-identities id :x-is-selected])))
-             db) 
-          :framed-app-url)))
+   
+   (if (:framed-app-url db)
+     (assoc-in (dissoc db :framed-app-url) [:all-identities id :x-is-selected] true)
+     (assoc-in db [:all-identities id :x-is-selected]
+               (not (get-in db [:all-identities id :x-is-selected]))))))
 
 (rf/reg-event-db
  :change-fld
@@ -73,11 +79,6 @@
 (rf/reg-event-db
  :on-framed-app-btn-click
  (fn [db [_ url]]
-   (prn "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-   (prn "associng " url " to (:framed-app-url db)")
-   (prn "associng " url " to (:framed-app-url db)")
-   (prn "associng " url " to (:framed-app-url db)")
-   (prn "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
    (assoc db :framed-app-url url)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

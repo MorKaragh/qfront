@@ -2,8 +2,7 @@
   (:require
    [re-frame.core :as rf]
    [qfront.shared.ui.basicui :as ui]
-   [reagent.core :as r]
-   [qfront.shared.utils.jsutils :as u]))
+   [qfront.shared.utils.js-utils :as u]))
 
 (defn operation-plank [identity]
   (let [id (:id identity)]

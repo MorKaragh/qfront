@@ -5,6 +5,7 @@
    [qfront.app.events]
    [reagent.dom :as d]
    [re-frame.core :as rf]
+   [qfront.app.scheduler]
    ))
 
 
@@ -18,5 +19,8 @@
   (rf/dispatch-sync [:initialize])
   (loader/load-identities)
   (mount-root))
+
+(+ 1 1)
+
 
 

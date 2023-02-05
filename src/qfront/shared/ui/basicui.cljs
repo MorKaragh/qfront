@@ -1,5 +1,5 @@
 (ns qfront.shared.ui.basicui
-  (:require [qfront.shared.utils.jsutils :as u]))
+  (:require [qfront.shared.utils.js-utils :as u]))
 
 (defn find-field [caption fld-name state handler]
   
