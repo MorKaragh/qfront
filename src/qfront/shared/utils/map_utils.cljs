@@ -5,13 +5,15 @@
     (dissoc map k)
     (assoc map k v)))
 
-(update-map {1 "a" 2 "b" 3 "c"} [4, "d"])
-
 (defn intersect-keys [mor les]
   (filter  #(not (nil? %)) (map #(get mor %) (keys les))))
 
-(defn uniq-in-second 
+(defn uniq-in-second-map 
   "returns map entries presented only in second parameter"
   [fir sec]
   (apply dissoc sec (keys fir)))
 
+(defn unique-in-second-vec [fir sec]
+  (let [firset (into #{} fir)
+        secset (into #{} sec)]
+    (filter (fn [e] (not (contains? firset e))) secset)))

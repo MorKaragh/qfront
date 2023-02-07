@@ -1,4 +1,4 @@
-(ns qfront.features.identity.identityplank
+(ns qfront.features.identity.identity-plank
   (:require [clojure.string :as str]
             [re-frame.core :as rf]))
 

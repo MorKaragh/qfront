@@ -47,6 +47,7 @@ header h2 {
   flex-direction: column;
   flex-shrink: 1;
   width: 30vw;
+  min-height: 85vh;
 }
 #left-menu section {
 

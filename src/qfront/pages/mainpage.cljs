@@ -1,8 +1,7 @@
 (ns qfront.pages.mainpage
-  (:require
-    [qfront.features.identity.operation :as oper]
-    [qfront.features.identity.profilelayout :as prof]
-    [qfront.features.header.header :as header]))
+  (:require [qfront.features.header.header :as header]
+            [qfront.features.left-menu.left-menu :refer [left-menu]]
+            [qfront.features.right-part.operation-layout :refer [right-part]]))
 
 (defn home-page []
   [:div {:id "main-page"}
@@ -10,6 +9,6 @@
     [:h2 "People of the world"]
     [header/header-controls]]
    [:main {:id "working-zone"} 
-    [prof/left-menu]
-    [oper/right-part]
+    [left-menu]
+    [right-part]
     ]])

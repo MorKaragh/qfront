@@ -1,6 +1,8 @@
 (ns qfront.app.events
   (:require
    [qfront.shared.utils.map-utils :as mu]
+   [qfront.shared.utils.js-utils :as u]
+   [qfront.shared.localstorage.changes-storage :as changes]
    [re-frame.core :as rf]))
 
 ;; -----------------
@@ -51,16 +53,16 @@
  :load-users
  (fn [db [_ data]]
    (let [identities (:all-identities db)
-         to-delete  (mu/uniq-in-second data identities)
-         to-add (mu/uniq-in-second identities data)]
-     (assoc db :all-identities 
-            (merge (apply dissoc identities (keys to-delete)) to-add )))
-   ))
+         to-delete  (mu/uniq-in-second-map data identities)
+         to-add (mu/uniq-in-second-map identities data)]
+     (changes/sync-changes-storage (keys data))
+     (assoc db :all-identities
+            (merge (apply dissoc identities (keys to-delete)) to-add)))))
 
 (rf/reg-event-db
  :plank-click
  (fn [db [_ id]]
-   
+
    (if (:framed-app-url db)
      (assoc-in (dissoc db :framed-app-url) [:all-identities id :x-is-selected] true)
      (assoc-in db [:all-identities id :x-is-selected]
@@ -69,7 +71,10 @@
 (rf/reg-event-db
  :change-fld
  (fn [db [_ id fld val]]
-   (assoc-in db [:all-identities id fld] val)))
+   (let [changes (first (filter #(not (nil? %)) [(u/get-local-item "changes") {}]))] 
+     (prn "id" id "fld" fld "val" val)
+     (u/set-local-item "changes" (assoc-in changes [id fld] val)) 
+     (assoc-in db [:all-identities id fld] val))))
 
 (rf/reg-event-fx
  :test-click

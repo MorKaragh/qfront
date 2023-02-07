@@ -1,11 +1,18 @@
 (ns qfront.shared.utils.js-utils)
 
-(defn log [strng]
-  ((.-log js/console) (str strng)))
-
-(defn bind [atm]
-  (fn [e]
-    (reset! atm (-> e .-target .-value))))
-
 (defn e-val [e]
   (-> e .-target .-value))
+
+(defn- map-2-json [m]
+  (.stringify js/JSON (clj->js m)))
+
+;; local storage functions
+
+(defn set-local-item [k v]
+  (.setItem (.-localStorage js/window) k (map-2-json v)))
+
+(defn get-local-item [k]
+  (js->clj (.parse js/JSON (.getItem (.-localStorage js/window) k))))
+
+(defn del-local-item [k]
+  (.removeItem (.-localStorage js/window) k))

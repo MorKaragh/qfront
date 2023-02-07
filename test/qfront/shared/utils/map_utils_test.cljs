@@ -7,6 +7,6 @@
 (deftest uniq-in-second-test [] 
   (let [fir {:a "a" :b "b" :c "c"}
         sec {:b "b" :c "c" :d "d"}] 
-    (is (= (mu/uniq-in-second fir sec) {:d "d"}))))
+    (is (= (mu/uniq-in-second-map fir sec) {:d "d"}))))
 
 (cljs.test/run-tests)
