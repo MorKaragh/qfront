@@ -8,8 +8,7 @@
                       :output-dir "public/js"
                       :asset-path "/js"
                       :modules    {:app {:entries [qfront.core]}}
-                      :devtools   {:after-load qfront.core/mount-root}}
-                      :build-hooks [(qfront.core/buildook 0)]
+                      :devtools   {:after-load qfront.core/mount-root}} 
                 :test {:target    :node-test
                        :output-to "out/node-tests.js"
                        :ns-regexp "-test$"

@@ -9,20 +9,6 @@
 
 
 ;; -------------------------
-;; Build hooks
-
-(defn buildhook
-  {:shadow.build/stage :flush}
-  [build-state & args]
-  (prn [:hello-world args])
-  (prn [:hello-world args])
-  (prn [:hello-world args])
-  (prn [:hello-world args])
-  (prn [:hello-world args])
-  build-state)
-
-
-;; -------------------------
 ;; Initialize app
 
 (defn mount-root []
