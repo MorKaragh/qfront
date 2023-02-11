@@ -1,13 +1,17 @@
-(ns qfront.features.identity.operation-plank 
-  (:require [qfront.shared.utils.js-utils :as u]
-            [qfront.shared.ui.basicui :as ui]
-            [re-frame.core :as rf]))
+(ns qfront.features.identity.operation-plank
+  (:require
+   ["react-datepicker" :as dt :default ReactDatepicker]
+   [qfront.shared.utils.js-utils :as u]
+   [qfront.shared.ui.basicui :as ui]
+   [re-frame.core :as rf]))
 
 
 (defn operation-plank [identity]
   (let [id (:id identity)]
     [:div {:class "operation-plank"}
      [:h3 (str " NAME: " (:name identity))]
+     [:div
+      [:> ReactDatepicker {:selected (js/Date.)}]]
      [:form {:class "id-operation-form"}
       [:fieldset {:class "id-operation-form-inputs"}
        (for [k (keys (dissoc identity :id))]

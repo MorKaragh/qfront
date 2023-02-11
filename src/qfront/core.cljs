@@ -1,12 +1,25 @@
 (ns qfront.core
-  (:require 
+  (:require
    [qfront.pages.mainpage :as ideditor]
    [qfront.entities.identity.identityloader :as loader]
    [qfront.app.events]
    [reagent.dom :as d]
    [re-frame.core :as rf]
-   [qfront.app.scheduler]
-   ))
+   [qfront.app.scheduler]))
+
+
+;; -------------------------
+;; Build hooks
+
+(defn buildhook
+  {:shadow.build/stage :flush}
+  [build-state & args]
+  (prn [:hello-world args])
+  (prn [:hello-world args])
+  (prn [:hello-world args])
+  (prn [:hello-world args])
+  (prn [:hello-world args])
+  build-state)
 
 
 ;; -------------------------
@@ -20,7 +33,6 @@
   (loader/load-identities)
   (mount-root))
 
-(+ 1 1)
 
 
 
