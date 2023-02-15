@@ -29,6 +29,12 @@ header {
   margin: 0;
 }
 
+header h2 {
+  color: #EFF1F3;
+  font-size: 30pt;
+  flex-grow: 1;
+}
+
 #working-zone {
   grid-area: working;
   display: grid;
@@ -47,17 +53,79 @@ header {
   grid-area: left;
 }
 
+#mock-api-btn {
+  background-color: #9acd32;
+  color: white;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  padding: 20pt;
+  border: 5px solid rgb(73, 176, 73);
+  border-radius: 10px;  
+  transition: background-color 500ms linear;
+  margin: 10px;
+}
+
+#mock-api-btn:hover {
+  background-color: rgb(73, 176, 73);
+  cursor: pointer;
+}
+
+#users-layout {
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+.user-profile {
+  padding: 1px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: azure;
+  transition-property: background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+.user-profile.selected-plank {
+  background-color: lightsteelblue;
+}
+
+.user-profile:hover {
+  background-color: lightskyblue;
+  border: 1px dotted gray;
+  padding: 0;
+  cursor: pointer;
+}
+
+.user-profile.selected-plank:hover {
+  background-color: lightskyblue;
+}
+
+.user-profile img {
+  border: 5px solid darkblue;
+  border-radius: 50%;
+  margin-top: 30px;
+  flex-shrink: 1;
+}
+
+.user-description {
+  flex-shrink: 1;
+}
+
+.user-attributes li{
+  overflow-x: hidden;
+}
+
+.user-name {
+  font-size: larger;
+}
+
 #right-part {
   flex-grow: 1;
   overflow-y: scroll;
   display: flex;
   grid-area: right;
-}
-
-header h2 {
-  color: #EFF1F3;
-  font-size: 30pt;
-  flex-grow: 1;
 }
 
 #header-controls {
@@ -69,91 +137,35 @@ header h2 {
   flex-shrink: 1;
 }
 
-#mock-api-btn {
-  background: #9acd32;
-  text-align: center;
-  padding: 20pt;
-  border: 5px solid lightgray;
-  border-radius: 10px;  
-}
-#users-layout {
-  overflow-y: scroll;
-  flex-grow: 1;
-}
-
-@keyframes slidein {
-  from {
-    margin-right: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-right: 0%;
-    width: 100%;
-  }
-}
-
 #operation-layout {
   background-color: #EFF1F3;
   flex-grow: 1;
   overflow-y: scroll;
   font-size: large;
-  animation-duration: 0.2s;
-  animation-name: slidein;
 }
+
+.id-operation-form-inputs .custom-field {
+  display: flex;
+}
+
+.id-operation-form-inputs input {
+  flex-grow: 1;
+  font-size: large;
+}
+
+.id-operation-form-inputs label {
+  flex-basis: 200px;
+}
+
 #frame-container {
   flex-grow: 1;
   display: flex;
 }
+
 iframe {
   flex-grow: 1;
 }
 
 
-.id-operation-form-inputs .custom-field {
-  display: flex;
-}
-.id-operation-form-inputs input {
-  flex-grow: 1;
-  font-size: large;
-}
-.id-operation-form-inputs label {
-  flex-basis: 200px;
-}
 
-
-.user-profile {
-  padding: 1px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.user-profile.selected-plank {
-  background-color: #D77A61;
-}
-.user-profile:hover {
-  background-color: azure;
-  border: 1px dotted gray;
-  padding: 0;
-  cursor: pointer;
-}
-.user-profile.selected-plank:hover {
-  background-color: #D8B4A0;
-}
-.user-profile img {
-  border: 5px solid #D77A61;
-  border-radius: 50%;
-  margin-top: 30px;
-  flex-shrink: 1;
-}
-
-.user-description {
-  flex-shrink: 1;
-}
-.user-attributes li{
-  overflow-x: hidden;
-}
-.user-name {
-  font-size: larger;
-}
 

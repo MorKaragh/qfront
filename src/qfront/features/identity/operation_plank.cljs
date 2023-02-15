@@ -14,8 +14,8 @@
       [:> ReactDatepicker {:selected (js/Date.)}]]
      [:form {:class "id-operation-form"}
       [:fieldset {:class "id-operation-form-inputs"}
-       (for [k (keys (dissoc identity :id))]
-         ^{:key (str "fld-" k "-" id)}
+       (for [k (keys (dissoc identity :id))] 
+         ^{:key (str "fld-" k "-" id)} 
          [ui/find-field
           k
           (str id k)

@@ -8,6 +8,9 @@
    [qfront.app.scheduler]))
 
 
+(defn bhook [x]
+  (prn "hello " x))
+
 ;; -------------------------
 ;; Initialize app
 
