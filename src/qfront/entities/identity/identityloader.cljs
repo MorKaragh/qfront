@@ -14,5 +14,4 @@
     (go (let [response (<! (http/get str
                                     {:with-credentials? false
                                      :query-params {"since" 135}}))]
-          (prn (parse-body response))
           (rf/dispatch [:load-users (parse-body(:body response))])))))

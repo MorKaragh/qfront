@@ -72,7 +72,6 @@
  :change-fld
  (fn [db [_ id fld val]]
    (let [changes (first (filter #(not (nil? %)) [(u/get-local-item "changes") {}]))] 
-     (prn "id" id "fld" fld "val" val)
      (u/set-local-item "changes" (assoc-in changes [id fld] val)) 
      (assoc-in db [:all-identities id fld] val))))
 
