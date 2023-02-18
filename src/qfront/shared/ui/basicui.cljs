@@ -47,12 +47,16 @@
     [:div {:class "custom-field"}
      [:label {:for fld-name} caption] 
      [:> ReactDatepicker {:name fld-name
+                          :show-icon nil
+                          :date-format "dd.MM.yyyy"
                           :selected val
                           :value val
-                          :on-select #(prn (str %))}]]))
+                          :on-select 
+                          #(handler (u/wrap-date-event %))}]]))
 
 (defn find-field [caption fld-name state handler]
   (cond
     (du/date? @state) (date-picker fld-name caption state handler)
     (bool? @state) (yes-no fld-name caption state handler)
     :else (text-field fld-name caption state handler)))
+

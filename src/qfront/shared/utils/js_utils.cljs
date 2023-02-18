@@ -16,3 +16,8 @@
 
 (defn del-local-item [k]
   (.removeItem (.-localStorage js/window) k))
+
+(defn wrap-date-event [s]
+  (js-obj "target"
+          (js-obj "value"
+                  (.toISOString (js/Date. s)))))
