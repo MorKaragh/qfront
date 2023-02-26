@@ -3,7 +3,8 @@
    [qfront.shared.utils.map-utils :as mu]
    [qfront.shared.utils.js-utils :as u]
    [qfront.shared.localstorage.changes-storage :as changes]
-   [re-frame.core :as rf]))
+   [re-frame.core :as rf]
+   [reitit.frontend.controllers :as rfc]))
 
 ;; -----------------
 ;; ---- queries ----
@@ -40,6 +41,11 @@
  (fn [db _]
    (:framed-app-url db)))
 
+(rf/reg-sub
+ :current-route
+ (fn [db _]
+   (:current-route db)))
+
 ;; ----------------
 ;; ---- events ----
 ;; ----------------
@@ -71,19 +77,38 @@
 (rf/reg-event-db
  :change-fld
  (fn [db [_ id fld val]]
-   (let [changes (first (filter #(not (nil? %)) [(u/get-local-item "changes") {}]))] 
-     (u/set-local-item "changes" (assoc-in changes [id fld] val)) 
+   (let [changes (first (filter #(not (nil? %)) [(u/get-local-item "changes") {}]))]
+     (u/set-local-item "changes" (assoc-in changes [id fld] val))
      (assoc-in db [:all-identities id fld] val))))
+
+(rf/reg-event-db
+ :on-framed-app-btn-click
+ (fn [db [_ url]]
+   (assoc db :framed-app-url url)))
+
+(rf/reg-event-db
+ :navigate
+ (fn [db [_ url]]
+   (assoc db :current-route url)))
+
+(rf/reg-event-db
+ :navigate
+ (fn [db [_ new-match]]
+   (prn ":navigate " new-match)
+   (let [old-match   (:current-route db)
+         controllers (rfc/apply-controllers (:controllers old-match) new-match)]
+     (assoc db :current-route (assoc new-match :controllers controllers)))))
+
+;; ----------------
+;; ----- FXes -----
+;; ----------------
 
 (rf/reg-event-fx
  :test-click
  (fn [db [_ _]]
    (prn (str db))))
 
-(rf/reg-event-db
- :on-framed-app-btn-click
- (fn [db [_ url]]
-   (assoc db :framed-app-url url)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

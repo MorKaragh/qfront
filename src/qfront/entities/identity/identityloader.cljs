@@ -3,7 +3,7 @@
   (:require 
     [re-frame.core :as rf]
     [cljs-http.client :as http]
-    [cljs.core.async :refer [<!]]))
+    [cljs.core.async :refer [<! >! chan alts!]]))
 
 
 (defn- parse-body [data]
