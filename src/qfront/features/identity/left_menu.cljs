@@ -1,6 +1,6 @@
-(ns qfront.features.left-menu.left-menu
+(ns qfront.features.identity.left-menu
   (:require
-   [qfront.features.left-menu.external-apps-menu :as exapps]
+   [qfront.features.identity.external-apps-menu :as exapps]
    [qfront.features.identity.identity-menu :as idmenu]))
 
 

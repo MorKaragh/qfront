@@ -1,4 +1,4 @@
-(ns qfront.features.left-menu.external-apps-menu 
+(ns qfront.features.identity.external-apps-menu 
   (:require [re-frame.core :as rf]))
 
 (defn apps-menu []

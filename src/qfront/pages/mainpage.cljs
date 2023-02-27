@@ -1,14 +1,13 @@
 (ns qfront.pages.mainpage
   (:require [qfront.features.header.header :as header]
-            [qfront.features.left-menu.left-menu :refer [left-menu]]
-            [qfront.features.right-part.operation-layout :refer [right-part]]))
+            [re-frame.core :as re-frame]))
 
-(defn home-page []
+(defn home-page [{:keys [router]}]
   [:div {:id "main-page"}
    [:header {:id "main-header"}
     [:h2 "People of the world"]
-    [header/header-controls]]
-   [:main {:id "working-zone"} 
-    [left-menu]
-    [right-part]
-    ]])
+    [header/header-controls {:router router}]]
+   (let [current-route @(re-frame/subscribe [:current-route])]
+     (when current-route
+       [(-> current-route :data :view)]))])
+
