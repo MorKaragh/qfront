@@ -15,6 +15,6 @@
 
 (defn header-controls [{:keys [router]}]
   [:div {:id "header-controls"}
-   [:button {:on-click #(rf/dispatch [:navigate (r/match-by-path router "/")])} "Identity editor"]
-   [:button {:on-click #(rf/dispatch [:navigate (r/match-by-path router "/entity")])} "Entity editor"]
+   [:a {:href "/"} "root"]
+   [:a {:href "entity"} "entity"]
    [:button {:on-click #(rf/dispatch [:test-click])} "TEST"]])

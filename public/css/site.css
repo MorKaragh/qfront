@@ -31,8 +31,16 @@ header {
 
 header h2 {
   color: #EFF1F3;
-  font-size: 30pt;
+  font-size: 20pt;
   flex-grow: 1;
+  margin: 5px;
+}
+
+header a {
+  color: white;
+  margin: auto;
+  margin-right: 20px;
+  font-size: 1.5rem;
 }
 
 #working-zone {
