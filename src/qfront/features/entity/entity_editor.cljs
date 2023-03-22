@@ -1,4 +1,7 @@
-(ns qfront.features.entity.entity-editor)
+(ns qfront.features.entity.entity-editor
+  (:require [qfront.features.uploader.uploader :as upl]))
 
 (defn page []
-  [:h1 "Hello, routed world!"])
+  [:div 
+   [:h1 "Hello, routed world!"]
+   [(upl/file-upload)]])

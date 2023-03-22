@@ -16,8 +16,8 @@
                     "user-profile selected-plank"
                     "user-profile ")
            :on-click #(rf/dispatch [:plank-click (:id user)])}
-     [:img {:src (:avatar user) :class "user-avatar"}]
-    ;;  [:img {:src (avatar-url user) :class "user-avatar"}]
+    ;;  [:img {:src (:avatar user) :class "user-avatar"}]
+     [:img {:src (avatar-url user) :class "user-avatar"}]
      [:div {:class "user-description"}
       [:h4 {:class "user-name"} (str "Name: " (:name user))]
       [:ul {:class "user-attributes"}
