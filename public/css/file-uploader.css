@@ -49,3 +49,9 @@
     bottom: 0px;
     left: 0px;
   }
+
+  .drop-div {
+    height: 300px;
+    width: 300px;
+    background-color: bisque;
+  }
