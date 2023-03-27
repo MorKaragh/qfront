@@ -9,7 +9,6 @@
   (prn (.-type e)))
 
 (defn handle-drop-2 [e] 
-  (.preventDefault e)
   (prn "dropping!")
   (js/console.log e)
   (if (not (nil? (-> e .-dataTransfer .-files (aget 0))))
