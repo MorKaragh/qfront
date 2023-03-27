@@ -31,8 +31,8 @@
 
 (defn handle-drop [active file]
   (fn [x]
-    (let [recieved-file (-> x .-dataTransfer .-files (aget 0))] 
-      (.preventDefault x) 
+    (let [recieved-file (-> x .-dataTransfer .-files (aget 0))]
+      (.preventDefault x)
       (prn "event: " x)
       (prn "recieved-file: " recieved-file)
       (reset! active false)
