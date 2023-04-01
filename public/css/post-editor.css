@@ -1,0 +1,18 @@
+.post-editor {
+    width: 600px;
+    height: 100%;
+    background-color: lightblue;
+}
+
+.post-editor input {
+    width: 100%;
+    display: inline-block;
+}
+
+.post-editor textarea {
+    width: 100%;
+}
+
+.post-editor label {
+    font-size: large;
+}

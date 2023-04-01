@@ -1,4 +1,4 @@
-(ns qfront.features.uploader.dnd
+(ns qfront.features.blacksquare.dnd
   (:require [reagent.core :as r]
             ["react-dnd" :as dnd]
             ["react-dnd-html5-backend" :as html5]))
@@ -22,9 +22,9 @@
 (defn process-colors [r g b item]
   (let [step 51]
     (case (:color item)
-     "red" (swap! r + step)
-     "green" (swap! g + step)
-     "blue" (swap! b + step))))
+     "red" (do (swap! g - step) (swap! b - step))
+     "green" (do (swap! r - step) (swap! b - step))
+     "blue" (do (swap! g - step) (swap! r - step)))))
 
 (defn box [color]
   (let [[props drag]
@@ -43,9 +43,9 @@
            :style (box-style color)}]))
 
 (defn dustbin []
-  (let [red    (r/atom 0)
-        green  (r/atom 0)
-        blue   (r/atom 0)]
+  (let [red    (r/atom 255)
+        green  (r/atom 255)
+        blue   (r/atom 255)]
     (fn []
       (let [[props drop]
             (dnd/useDrop

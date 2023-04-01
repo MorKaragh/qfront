@@ -88,13 +88,8 @@
 
 (rf/reg-event-db
  :navigate
- (fn [db [_ url]]
-   (assoc db :current-route url)))
-
-(rf/reg-event-db
- :navigate
  (fn [db [_ new-match]]
-   (prn ":navigate " new-match)
+   (prn "navigate event")
    (let [old-match   (:current-route db)
          controllers (rfc/apply-controllers (:controllers old-match) new-match)]
      (assoc db :current-route (assoc new-match :controllers controllers)))))

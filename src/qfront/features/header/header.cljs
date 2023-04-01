@@ -1,8 +1,7 @@
 (ns qfront.features.header.header
   (:require
    [re-frame.core :as rf]
-   [reitit.frontend.easy :as rfe]
-   [reitit.core :as r]))
+   [reitit.frontend.easy :as rfe]))
 
 (defn href
   "Return relative url for given route. Url can be used in HTML links."
@@ -15,6 +14,7 @@
 
 (defn header-controls [{:keys [router]}]
   [:div {:id "header-controls"}
-   [:a {:href "/"} "root"]
-   [:a {:href "entity"} "entity"]
+   [:a {:href "/"} "identity"]
+   [:a {:href "blog"} "blog"]
+   [:a {:href "square"} "square"]
    [:button {:on-click #(rf/dispatch [:test-click])} "TEST"]])
