@@ -1,6 +1,7 @@
 (ns qfront.features.blog.blog-posting 
   (:require [reagent.core :as r]
-            [qfront.features.uploader.uploader :as upl]))
+            [qfront.features.uploader.uploader :as upl]
+            [qfront.features.blog.events :as events]))
 
 (def wrap-style
   {})
@@ -15,6 +16,6 @@
                 :name "blog-header"}]
        [:label {:for "blog-text"} "Текст"]
        [:textarea {:rows 30 :cols 100 :name "blog-text"}]
-       [:label {:for "file"} "Файл"]
-       [:input {:type "file" :name "blog-file"}]
+      ;;  [:label {:for "file"} "Файл"]
+      ;;  [:input {:type "file" :name "blog-file"}]
        [upl/file-upload]])))

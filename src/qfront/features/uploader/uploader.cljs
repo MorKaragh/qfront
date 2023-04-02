@@ -1,25 +1,14 @@
 (ns qfront.features.uploader.uploader 
   (:require [reagent.core :as r]
-            [ajax.core :as ajax]))
+            [ajax.core :as ajax]
+            [re-frame.core :as rf]
+            [cljs-http.client :as http]
+            [cljs.core.async :refer [<! >! chan alts!]]))
 
 (defn upload-file [file]
-  (let [chunk-size (* 1024 1024) ; 1MB chunk size
-        num-chunks (-> file .size (/ chunk-size) Math/ceil int)
-        chunks (range num-chunks)
-        upload-chunk (fn [chunk-index]
-                       (let [start-byte (* chunk-index chunk-size)
-                             end-byte (min (* (inc chunk-index) chunk-size) (.size file))
-                             chunk (.slice file start-byte end-byte)
-                             url "/upload"
-                             data (clj->js {:file chunk})]
-                         (ajax/ajax-request
-                           {:method :post
-                            :uri url
-                            :params data
-                            :handler #(println "Chunk uploaded:" chunk-index)}
-                           )))]
-    (doseq [chunk chunks]
-      (upload-chunk chunk))))
+  (http/post "http://localhost:3001/images" 
+             {:with-credentials? false
+              :multipart-params [["mykey" "myval"] ["uplfile" file]]}))
 
 (defn handle-drag [active] 
   (fn [x]
@@ -41,9 +30,11 @@
 ;;   (let [files (.-files (.-dataTransfer x))] (prn (aget files 0)))
   )
 
-(defn- on-btn-click [event]
-  (.preventDefault event) 
-  (prn "click!"))  
+(defn- on-btn-click [file]
+  (fn [e]
+    (.preventDefault e)
+    (prn "uploading!")
+    (upload-file @file)))  
 
 (defn file-upload []
     (let [active (r/atom false)
@@ -61,7 +52,7 @@
           [:p (if (nil? @file-input) 
                 "Drag and Drop"
                 (.-name @file-input))]
-          [:button {:on-click on-btn-click} "Upload a file!"]]]
+          [:button {:on-click (on-btn-click file-input)} "Upload a file!"]]]
         (when @active [:div#drag-file-element 
                        {:on-drag-enter (handle-drag active)
                         :on-drag-leave (handle-drag active)
