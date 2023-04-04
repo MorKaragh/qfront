@@ -1,4 +1,4 @@
-(ns qfront.features.blacksquare.dnd
+(ns qfront.features.blacksquare.square
   (:require [reagent.core :as r]
             ["react-dnd" :as dnd]
             ["react-dnd-html5-backend" :as html5]))
@@ -22,9 +22,9 @@
 (defn process-colors [r g b item]
   (let [step 51]
     (case (:color item)
-     "red" (do (swap! g - step) (swap! b - step))
-     "green" (do (swap! r - step) (swap! b - step))
-     "blue" (do (swap! g - step) (swap! r - step)))))
+     "cyan" (swap! r - step)
+     "magenta" (swap! g - step)
+     "yellow" (swap! b - step))))
 
 (defn box [color]
   (let [[props drag]
@@ -60,7 +60,7 @@
         [:div {:ref   drop
                :style (bin-style @red @green @blue (:is-over props))}]))))
 
-(defn dradrop []
+(defn color-square []
   (fn []
     [:> dnd/DndProvider {:backend html5/HTML5Backend}
      [:div {:style {:display         "flex"
@@ -72,6 +72,6 @@
                       :display         "flex"
                       :justify-content "space-between"
                       :margin-top      "20px"}}
-        [:f> box "red"]
-        [:f> box "green"]
-        [:f> box "blue"]]]]]))
+        [:f> box "cyan"]
+        [:f> box "magenta"]
+        [:f> box "yellow"]]]]]))

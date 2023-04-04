@@ -2,7 +2,7 @@
   (:require
    [qfront.pages.mainpage :as mainpage]
    [qfront.entities.identity.identityloader :as loader]
-   [qfront.features.entity.entity-editor :as enti]
+   [qfront.features.blacksquare.entity-editor :as enti]
    [qfront.app.events]
    [reagent.dom :as reagent]
    [re-frame.core :as re-frame]
