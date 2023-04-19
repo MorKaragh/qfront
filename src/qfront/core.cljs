@@ -2,7 +2,7 @@
   (:require
    [qfront.pages.mainpage :as mainpage]
    [qfront.entities.identity.identityloader :as loader]
-   [qfront.features.blacksquare.entity-editor :as enti]
+   [qfront.features.blacksquare.square-page :as enti]
    [qfront.app.events]
    [reagent.dom :as reagent]
    [re-frame.core :as re-frame]
@@ -27,8 +27,8 @@
     ["square" {:name "square"
                :view #'enti/page
                :controllers
-               [{:start (fn [& params] (str "Entering entity editor"))
-                 :stop  (fn [& params] (str "Leaving entity editor"))}]}]]])
+               [{:start (fn [& params] (str "Entering square"))
+                 :stop  (fn [& params] (str "Leaving square"))}]}]]])
 
 (def router
   (rfr/router

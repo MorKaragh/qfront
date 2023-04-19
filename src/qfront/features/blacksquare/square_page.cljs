@@ -1,4 +1,4 @@
-(ns qfront.features.blacksquare.square-pageditor
+(ns qfront.features.blacksquare.square-page
   (:require [qfront.features.blacksquare.square :as dnd]))
 
 (defn page []

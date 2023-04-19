@@ -5,12 +5,12 @@
             [cljs-http.client :as http]
             [cljs.core.async :refer [<! >! chan alts!]]))
 
-(defn upload-file [file]
+(defn- upload-file [file]
   (http/post "http://localhost:3001/images" 
              {:with-credentials? false
               :multipart-params [["mykey" "myval"] ["uplfile" file]]}))
 
-(defn handle-drag [active] 
+(defn- handle-drag [active] 
   (fn [x]
     (.preventDefault x)
     (.stopPropagation x)
@@ -18,7 +18,7 @@
       (cond (or (= type "dragenter") (= type "dragover")) (reset! active true)
             (= type "dragleave") (reset! active false)))))
 
-(defn handle-drop [active file]
+(defn- handle-drop [active file]
   (fn [x]
     (let [recieved-file (-> x .-dataTransfer .-files (aget 0))]
       (.preventDefault x)
