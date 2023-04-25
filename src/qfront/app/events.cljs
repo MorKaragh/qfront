@@ -68,7 +68,6 @@
 (rf/reg-event-db
  :plank-click
  (fn [db [_ id]]
-
    (if (:framed-app-url db)
      (assoc-in (dissoc db :framed-app-url) [:all-identities id :x-is-selected] true)
      (assoc-in db [:all-identities id :x-is-selected]
@@ -104,19 +103,3 @@
    (prn (str db))))
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(def testmap {:framed-app-url "http://www.hello.ru"
-              :all-identities {"1" {:name "Alice" :age 11}
-                               "2" {:name "Bob" :age 22 :x-is-selected true}
-                               "3" {:name "Claire" :age 33 :x-is-selected true}}})
-
-(vec (filter #(:x-is-selected %) (vals (:all-identities testmap))))
-
-(map :name (vec (filter #(:x-is-selected %) (vals (:all-identities testmap)))))
-
-(let [idn (:all-identities testmap)
-      id "2"]
-  (assoc-in idn [id :x-is-selected]
-            (not (get-in idn [id :x-is-selected]))))

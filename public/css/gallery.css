@@ -1,0 +1,7 @@
+.gallery-root {
+    display: flex;
+}
+
+.imagebox {
+    height: 15rem;
+}

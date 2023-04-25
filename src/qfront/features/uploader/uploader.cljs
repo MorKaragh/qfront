@@ -3,17 +3,29 @@
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [cljs-http.client :as http]
+            [qfront.features.uploader.events]
             [cljs.core.async :refer [<! >! chan alts!]]))
 
-(defn after-upload [hash])
+(def tst
+  {:status 200,
+   :success true,
+   :body {:hash "c7a0c2f9bd09f02688c79b606a8767ed"},
+   :headers {"content-length" "43", "content-type" "application/json"},
+   :trace-redirects ["http://localhost:3001/images" "http://localhost:3001/images"],
+   :error-code :no-error,
+   :error-text ""})
+
+(defn after-upload
+  [{{:keys [hash]} :body} file]
+  (rf/dispatch [:img-uploaded hash])
+  (reset! file nil))
 
 (defn- upload-file [file]
   (go (let [response
             (<! (http/post "http://localhost:3001/images"
                         {:with-credentials? false
                          :multipart-params [["mykey" "myval"] ["uplfile" @file]]}))]
-        (prn response)
-        (reset! file nil))))
+        (after-upload response file))))
 
 (defn- handle-drag [active]
   (fn [x]
