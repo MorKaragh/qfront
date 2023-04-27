@@ -46,10 +46,8 @@
    {:use-fragment false}))
 
 ;; -------------------------
-;; Initialize app
 
 (defn mount-root []
-  ;; (d/render [ideditor/home-page] (.getElementById js/document "app"))
   (reagent/render [mainpage/home-page {:router router}]
                   (.getElementById js/document "app")))
 
