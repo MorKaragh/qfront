@@ -4,7 +4,7 @@
             [re-frame.core :as rf]
             [cljs-http.client :as http]
             [cljs.core.async :refer [<! >! chan alts!]]
-            [qfront.features.uploader.uploader :as upl]
+            [qfront.features.gallery.uploader :as upl]
             [qfront.features.gallery.imgbox :as ib]))
 
 (defn gallery []

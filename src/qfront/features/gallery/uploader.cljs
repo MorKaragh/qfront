@@ -1,19 +1,10 @@
-(ns qfront.features.uploader.uploader
+(ns qfront.features.gallery.uploader
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [cljs-http.client :as http]
-            [qfront.features.uploader.events]
+            [qfront.features.gallery.events]
             [cljs.core.async :refer [<! >! chan alts!]]))
-
-(def tst
-  {:status 200,
-   :success true,
-   :body {:hash "c7a0c2f9bd09f02688c79b606a8767ed"},
-   :headers {"content-length" "43", "content-type" "application/json"},
-   :trace-redirects ["http://localhost:3001/images" "http://localhost:3001/images"],
-   :error-code :no-error,
-   :error-text ""})
 
 (defn after-upload
   [{{:keys [hash]} :body} file]

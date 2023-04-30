@@ -12,7 +12,7 @@
    [reitit.frontend.controllers :as rfc]
    [qfront.app.scheduler]
    [qfront.features.identity.identity-editor :as ideditor]
-   [qfront.features.blog.blog-posting :as blog]))
+   [qfront.features.blog.text-editor :as blog]))
 
 
 (def routes
@@ -23,7 +23,7 @@
          [{:start (fn [& params] (str "Entering ideditor"))
            :stop  (fn [& params] (str "Leaving ideditor"))}]}]
     ["blog" {:name "blog-editor"
-             :view #'blog/post-adder}]
+             :view #'blog/text-editor}]
     ["square" {:name "square"
                :view #'enti/page
                :controllers
