@@ -13,4 +13,4 @@
     (fn []
       [:div {:style {:padding "10px"}}
        [:> MDEditor {:value @value :on-change #(reset! value %)}]
-       ])))
+       [:> (.-Markdown MDEditor) {:source @value :style {"whiteSpace" "pre-wrap"}}]])))
