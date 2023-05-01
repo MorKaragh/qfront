@@ -21,3 +21,6 @@
   (js-obj "target"
           (js-obj "value"
                   (.toISOString (js/Date. s)))))
+
+(defn get-element-by-class [class-name]
+  (js/document.querySelector (str "." class-name)))

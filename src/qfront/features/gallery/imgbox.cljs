@@ -1,4 +1,8 @@
-(ns qfront.features.gallery.imgbox)
+(ns qfront.features.gallery.imgbox
+  (:require [qfront.app.properties :as p]))
 
-(defn image [hash]
-  [:img.imagebox {:src (str "http://localhost:3001/images/" hash)}])
+
+(defn image [hash on-click]
+  (fn []
+    [:img.imagebox {:src (str (:url p/props) "/images/" hash)
+                   :on-click #(on-click hash)}]))

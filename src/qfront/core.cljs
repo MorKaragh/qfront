@@ -1,18 +1,16 @@
 (ns qfront.core
-  (:require
-   [qfront.pages.mainpage :as mainpage]
-   [qfront.entities.identity.identityloader :as loader]
-   [qfront.features.blacksquare.square-page :as enti]
-   [qfront.app.events]
-   [reagent.dom :as reagent]
-   [re-frame.core :as re-frame]
-   [reitit.frontend :as rfr]
-   [reitit.frontend.easy :as rfre]
-   [reitit.coercion.spec :as rfrs]
-   [reitit.frontend.controllers :as rfc]
-   [qfront.app.scheduler]
-   [qfront.features.identity.identity-editor :as ideditor]
-   [qfront.features.blog.text-editor :as blog]))
+  (:require [qfront.app.events]
+            [qfront.app.scheduler]
+            [qfront.entities.identity.identityloader :as loader]
+            [qfront.features.blacksquare.square-page :as enti]
+            [qfront.features.identity.identity-editor :as ideditor]
+            [qfront.pages.mainpage :as mainpage]
+            [qfront.pages.post-editor :as post-editor]
+            [re-frame.core :as re-frame]
+            [reagent.dom :as reagent]
+            [reitit.coercion.spec :as rfrs]
+            [reitit.frontend :as rfr]
+            [reitit.frontend.easy :as rfre]))
 
 
 (def routes
@@ -23,7 +21,7 @@
          [{:start (fn [& params] (str "Entering ideditor"))
            :stop  (fn [& params] (str "Leaving ideditor"))}]}]
     ["blog" {:name "blog-editor"
-             :view #'blog/text-editor}]
+             :view #'post-editor/post-editor}]
     ["square" {:name "square"
                :view #'enti/page
                :controllers

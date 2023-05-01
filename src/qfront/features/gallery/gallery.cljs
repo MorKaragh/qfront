@@ -7,9 +7,9 @@
             [qfront.features.gallery.uploader :as upl]
             [qfront.features.gallery.imgbox :as ib]))
 
-(defn gallery []
+(defn gallery [on-image-click]
   (fn [] 
     [:div.gallery-root
      [upl/file-upload]
      (for [i @(rf/subscribe [:shown-images])]
-       [ib/image i])]))
+       ^{:key (str "img-" i)} [ib/image i on-image-click])]))
