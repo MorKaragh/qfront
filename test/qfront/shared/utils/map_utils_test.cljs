@@ -2,8 +2,6 @@
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]
             [qfront.shared.utils.map-utils :as mu]))
 
-
-
 (deftest uniq-in-second-test [] 
   (let [fir {:a "a" :b "b" :c "c"}
         sec {:b "b" :c "c" :d "d"}] 

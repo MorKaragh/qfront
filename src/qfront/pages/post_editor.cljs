@@ -1,10 +1,19 @@
 (ns qfront.pages.post-editor 
-  (:require [qfront.features.blog.text-editor :as blog]
-            [qfront.features.gallery.gallery :refer [gallery]]))
+  (:require [qfront.app.properties :as p]
+            [qfront.features.blog.text-editor :as blog]
+            [qfront.features.gallery.gallery :refer [gallery]]
+            [qfront.shared.utils.js-utils :as jsu]
+            [re-frame.core :as rf]))
+
+
+(defn insert-position []
+  (.-selectionStart (jsu/get-element-by-class "w-md-editor-text-input")))
 
 (def on-image-click
   (fn [hash]
-    (prn "hash is " hash)))
+    (rf/dispatch [:insert-image 
+                  (str (:url p/props) "/images/" hash) 
+                  (.-selectionStart (jsu/get-element-by-class "w-md-editor-text-input"))])))
 
 (defn post-editor []
   [:div#post-editor
