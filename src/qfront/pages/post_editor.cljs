@@ -5,10 +5,6 @@
             [qfront.shared.utils.js-utils :as jsu]
             [re-frame.core :as rf]))
 
-
-(defn insert-position []
-  (.-selectionStart (jsu/get-element-by-class "w-md-editor-text-input")))
-
 (def on-image-click
   (fn [hash]
     (rf/dispatch [:insert-image 
