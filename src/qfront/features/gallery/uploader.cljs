@@ -8,7 +8,7 @@
 
 (defn after-upload
   [{{:keys [hash]} :body} file]
-  (rf/dispatch [:img-uploaded hash])
+  (when-not (nil? hash) (rf/dispatch [:img-uploaded hash]))
   (reset! file nil))
 
 (defn- upload-file [file]

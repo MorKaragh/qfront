@@ -8,10 +8,9 @@
             [reagent.core :as r]))
 
 (defn text-editor []
-  (let [value (r/atom "")]
-    (fn []
-      [:div {:style {:padding "10px"}}
-       [:> MDEditor {:value @(rf/subscribe [:post-edit-text]) 
-                     :on-change #(rf/dispatch [:post-edit %])}]
+  (fn []
+    [:div {:style {:padding "10px"}}
+     [:> MDEditor {:value @(rf/subscribe [:post-edit-text])
+                   :on-change #(rf/dispatch [:post-edit %])}]
       ;;  [:> (.-Markdown MDEditor) {:source @value :style {"whiteSpace" "pre-wrap"}}]
-       ])))
+     ]))
